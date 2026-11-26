@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TransitPulse | Intercity Fleet Maintenance & Route Optimization</title>
+  <meta name="description" content="TransitPulse - Production-Grade Intercity Fleet Maintenance & Route Optimization System integrating System Design, 3NF RDBMS, Azure DP-900, and Cloud Security.">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="brand-section">
+      <div class="brand-icon-wrap">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        <span class="pulse-dot"></span>
+      </div>
+      <div class="brand-text">
+        <h1>TransitPulse</h1>
+        <p>Intercity Fleet Telemetry &amp; Route Optimization Engine</p>
+      </div>
+    </div>
+
+    <div class="header-badges">
+      <div class="cloud-badge cloud-badge-azure">
+        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+        <span>Azure East US (Primary)</span>
+      </div>
+
+      <button id="openArchModalBtn" class="btn-architecture">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+        <span>Architecture &amp; DP-900 Specs</span>
+      </button>
+
+      <!-- RBAC Role Switcher -->
+      <div class="role-switcher-container">
+        <button class="role-btn active" data-role="manager">Fleet Manager</button>
+        <button class="role-btn" data-role="mechanic">Garage Mechanic</button>
+        <button class="role-btn" data-role="driver">Intercity Driver</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+
+    <!-- Academic Compliance & Context Banner -->
+    <section class="academic-banner">
+      <div class="academic-banner-content">
+        <span class="academic-tag">Integrated Capstone</span>
+        <p>
+          <strong>TransitPulse Enterprise Architecture:</strong> Unified implementation spanning <strong>System Design</strong> (micro-sharded IoT pipeline), <strong>3NF RDBMS</strong> (ACID work orders), <strong>Azure DP-900</strong> (SQL, Cosmos DB, Blob Storage, Power BI), and <strong>Cloud Security</strong> (Zero-Trust RBAC &amp; Key Vault).
+        </p>
+      </div>
+      <div style="font-size:0.75rem; color:#94a3b8; white-space:nowrap;" id="activeUserDisplay">
+        Aditya Sharma (Chief Fleet Operations Director)
+      </div>
+    </section>
+
+    <!-- Operational KPI Metrics Cards -->
+    <section class="metrics-grid">
+      <div class="metric-card glass-panel">
+        <div class="metric-header">
+          <span class="metric-title">Active Fleet Status</span>
+          <div class="metric-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path></svg>
+          </div>
+        </div>
+        <div class="metric-value">142</div>
+        <div class="metric-footer trend-up">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+          <span>89 In-Transit • 47 Depot-Ready • 6 In-Service</span>
+        </div>
+      </div>
+
+      <div class="metric-card glass-panel success-card">
+        <div class="metric-header">
+          <span class="metric-title">Fleet Health Index</span>
+          <div class="metric-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+        </div>
+        <div class="metric-value">98.4%</div>
+        <div class="metric-footer trend-up">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+          <span>+1.8% vs last month (AI Predictive Triage)</span>
+        </div>
+      </div>
+
+      <div class="metric-card glass-panel alert-card">
+        <div class="metric-header">
+          <span class="metric-title">Predictive Maintenance Alerts</span>
+          <div class="metric-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          </div>
+        </div>
+        <div class="metric-value">3</div>
+        <div class="metric-footer trend-warning">
+          <span>1 Critical Brake Wear • 2 Sensor Warnings</span>
+        </div>
+      </div>
+
+      <div class="metric-card glass-panel">
+        <div class="metric-header">
+          <span class="metric-title">Fuel &amp; Carbon Savings</span>
+          <div class="metric-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+        </div>
+        <div class="metric-value">14,280 L</div>
+        <div class="metric-footer trend-up">
+          <span>₹12.8L saved this quarter via Route Optimization</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabbed Navigation Bar -->
+    <nav class="view-tabs">
+      <button class="tab-btn active" data-tab="overview">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+        <span>Operations Hub &amp; Live Map</span>
+      </button>
+
+      <button class="tab-btn" data-tab="routes">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+        <span>Corridor Route Optimizer</span>
+      </button>
+
+      <button class="tab-btn" data-tab="diagnostics">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        <span>OBD-II Diagnostics &amp; Work Orders</span>
+      </button>
+
+      <button class="tab-btn" data-tab="inspection">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+        <span>Driver Safety &amp; Inspection Audit</span>
+      </button>
+    </nav>
+
+    <!-- TAB 1: OPERATIONS OVERVIEW -->
+    <section id="tabOverviewView">
+      <div class="content-grid">
+        <!-- Interactive Map Canvas Card -->
+        <div class="glass-panel map-container">
+          <div class="map-header">
+            <h2>
+              <svg width="18" height="18" fill="none" stroke="var(--accent-cyan)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              Live Nationwide Intercity Corridors &amp; Telemetry Pings
+            </h2>
+            <div style="font-size:0.75rem; color:var(--text-muted);">
+              Cosmos DB Streaming • 50ms GeoJSON Polling
+            </div>
+          </div>
+
+          <div class="canvas-wrapper">
+            <canvas id="routeCanvas"></canvas>
+            <div class="canvas-overlay-stats">
+              <span>Active Waypoints: <strong>10 Intercity Nodes</strong></span>
+              <span>Monitored Corridors: <strong>10 Mainlines</strong></span>
+              <span>Live Vehicles Tracking: <strong>6 In-Transit</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Telemetry & Vehicle List -->
+        <div class="glass-panel telemetry-panel">
+          <h3>
+            <span>Fleet Roster &amp; Health</span>
+            <span style="font-size:0.75rem; color:var(--accent-cyan);">Azure SQL Synced</span>
+          </h3>
+          <input type="text" class="search-input" placeholder="Search by Vehicle ID, VIN, or Depot..." />
+          <div class="fleet-list" id="fleetListContainer">
+            <!-- Dynamic Fleet Items Rendered via JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: CORRIDOR ROUTE OPTIMIZER -->
+    <section id="tabRoutesView" style="display:none;">
+      <div class="glass-panel" style="padding:1.5rem;">
+        <h2 style="font-size:1.2rem; font-weight:700; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
+          <svg width="20" height="20" fill="none" stroke="var(--accent-cyan)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+          Multi-Objective Intercity Route Optimization Engine
+        </h2>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1.25rem;">
+          Computes Pareto-optimal routing algorithms balancing transit time, road gradient, dynamic weather conditions, FastTag electronic toll rates, and battery/diesel consumption.
+        </p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center;">
+          <div style="display:flex; flex-direction:column; gap:0.3rem;">
+            <label style="font-size:0.75rem; color:var(--text-muted);">Origin Terminal:</label>
+            <select id="originSelect" class="route-select">
+              <option value="Delhi Central Hub">Delhi Central Hub (DEL)</option>
+              <option value="Jaipur Depot">Jaipur Depot (JAI)</option>
+              <option value="Ahmedabad Terminal">Ahmedabad Terminal (AMD)</option>
+              <option value="Mumbai Super Hub">Mumbai Super Hub (BOM)</option>
+              <option value="Bangalore Tech Corridor">Bangalore Tech Corridor (BLR)</option>
+            </select>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:0.3rem;">
+            <label style="font-size:0.75rem; color:var(--text-muted);">Destination Terminal:</label>
+            <select id="destinationSelect" class="route-select">
+              <option value="Mumbai Super Hub">Mumbai Super Hub (BOM)</option>
+              <option value="Bangalore Tech Corridor">Bangalore Tech Corridor (BLR)</option>
+              <option value="Chennai Port Terminal">Chennai Port Terminal (MAA)</option>
+              <option value="Delhi Central Hub">Delhi Central Hub (DEL)</option>
+              <option value="Ahmedabad Terminal">Ahmedabad Terminal (AMD)</option>
+            </select>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:0.3rem;">
+            <label style="font-size:0.75rem; color:var(--text-muted);">Vehicle Type &amp; Powertrain:</label>
+            <select class="route-select">
+              <option>Volvo 9800 Intercity HD (Euro VI Diesel)</option>
+              <option>Scania 14.5m Multi-Axle EV Sleeper</option>
+              <option>BharatBenz Heavy Freight 40-Tonne</option>
+            </select>
+          </div>
+
+          <button id="optimizeRouteBtn" class="btn-optimize" style="margin-top:1.15rem; padding:0.5rem 1.25rem;">
+            ⚡ Run Optimization Algorithm
+          </button>
+        </div>
+
+        <div id="routeResultContainer"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: DIAGNOSTICS & WORK ORDERS -->
+    <section id="tabDiagnosticsView" style="display:none;">
+      <div class="diagnostics-section" id="diagnosticsSection">
+        <!-- Live ECU Sensor Readouts -->
+        <div class="glass-panel" style="padding:1.25rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+            <div>
+              <h3 id="telemetryVehicleTitle" style="font-size:1.1rem; font-weight:700;">TP-1081 • Volvo 9800 Intercity</h3>
+              <p style="font-size:0.75rem; color:var(--text-muted);">OBD-II CAN-Bus Live Telemetry Stream</p>
+            </div>
+            <span class="cloud-badge cloud-badge-azure" style="font-size:0.7rem;">Cosmos DB Ingestion: ACTIVE</span>
+          </div>
+
+          <div class="sensor-cluster">
+            <div class="sensor-box">
+              <div class="sensor-label"><span>Engine RPM</span><span>0 - 2500</span></div>
+              <div class="sensor-readout" id="sensorRpm">1650 RPM</div>
+              <div class="sensor-progress"><div id="sensorRpmBar" class="sensor-bar" style="width:66%;"></div></div>
+            </div>
+
+            <div class="sensor-box">
+              <div class="sensor-label"><span>Coolant Temperature</span><span>Norm &lt; 95°C</span></div>
+              <div class="sensor-readout" id="sensorCoolant">89 °C</div>
+              <div class="sensor-progress"><div id="sensorCoolantBar" class="sensor-bar" style="width:74%;"></div></div>
+            </div>
+
+            <div class="sensor-box">
+              <div class="sensor-label"><span>Engine Oil Pressure</span><span>Norm &gt; 35 PSI</span></div>
+              <div class="sensor-readout" id="sensorOil">44 PSI</div>
+              <div class="sensor-progress"><div id="sensorOilBar" class="sensor-bar" style="width:73%;"></div></div>
+            </div>
+
+            <div class="sensor-box">
+              <div class="sensor-label"><span>Brake Pad Remaining</span><span>Crit &lt; 20%</span></div>
+              <div class="sensor-readout" id="sensorBrake">78 %</div>
+              <div class="sensor-progress"><div id="sensorBrakeBar" class="sensor-bar" style="width:78%;"></div></div>
+            </div>
+
+            <div class="sensor-box">
+              <div class="sensor-label"><span>Battery State of Health (SOH)</span><span>Norm &gt; 85%</span></div>
+              <div class="sensor-readout" id="sensorBattery">97 %</div>
+              <div class="sensor-progress"><div id="sensorBatteryBar" class="sensor-bar" style="width:97%;"></div></div>
+            </div>
+
+            <div class="sensor-box">
+              <div class="sensor-label"><span>Average Tire Pressure</span><span>105 - 115 PSI</span></div>
+              <div class="sensor-readout" id="sensorTire">112 PSI</div>
+              <div class="sensor-progress"><div id="sensorTireBar" class="sensor-bar" style="width:90%;"></div></div>
+            </div>
+          </div>
+
+          <div style="margin-top:1.25rem;">
+            <h4 style="font-size:0.82rem; font-weight:700; color:#fff; margin-bottom:0.4rem;">OBD-II Diagnostic Fault Codes (DTC):</h4>
+            <div id="dtcContainer"></div>
+          </div>
+        </div>
+
+        <!-- Work Order Creation & Maintenance Management -->
+        <div class="glass-panel" style="padding:1.25rem; display:flex; flex-direction:column; gap:1rem;">
+          <div>
+            <h3 style="font-size:1.1rem; font-weight:700;">Garage Dispatch &amp; Work Orders</h3>
+            <p style="font-size:0.75rem; color:var(--text-muted);">Enforcing 3NF Relational Integrity in Azure SQL Database</p>
+          </div>
+
+          <!-- Create Work Order Form -->
+          <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:1rem; display:flex; flex-direction:column; gap:0.75rem;">
+            <div style="font-size:0.82rem; font-weight:700; color:#93c5fd;">Create New Work Order Ticket</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem;">
+              <select id="woVehicleSelect" class="route-select">
+                <option value="TP-3092">TP-3092 (Brake Wear 18%)</option>
+                <option value="TP-2044">TP-2044 (Coolant High 101°C)</option>
+                <option value="TP-1081">TP-1081 (Scheduled Overhaul)</option>
+                <option value="TP-4115">TP-4115 (Pre-Trip Flag)</option>
+              </select>
+
+              <select id="woPrioritySelect" class="route-select">
+                <option value="Critical">Critical - Urgent SOS</option>
+                <option value="High" selected>High Priority</option>
+                <option value="Normal">Normal Scheduled</option>
+              </select>
+            </div>
+
+            <input type="text" id="woTypeInput" class="search-input" placeholder="Work description (e.g. Calibrate Brake Calipers)" />
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem;">
+              <select id="woMechanicSelect" class="route-select">
+                <option value="Master Tech Harpreet">Master Tech Harpreet</option>
+                <option value="Tech Somnath">Tech Somnath</option>
+                <option value="Tech Gurdeep">Tech Gurdeep</option>
+              </select>
+              <button id="createWorkOrderBtn" class="btn-optimize">Commit Ticket to SQL</button>
+            </div>
+          </div>
+
+          <!-- Critical Spares Inventory -->
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+              <h4 style="font-size:0.85rem; font-weight:700; color:#fff;">Critical Parts Inventory</h4>
+              <span style="font-size:0.7rem; color:var(--text-muted);">Auto-reorder enabled</span>
+            </div>
+            <div id="partsInventoryList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work Orders Transaction Log Table -->
+      <div class="glass-panel" style="padding:1.25rem; margin-top:1.5rem;">
+        <h3 style="font-size:1.05rem; font-weight:700; margin-bottom:0.85rem; display:flex; align-items:center; gap:0.5rem;">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+          Active Work Orders &amp; Audit Trail (3NF ACID Transactions)
+        </h3>
+        <div class="work-orders-table-wrapper">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Order ID &amp; Tx ID</th>
+                <th>Vehicle</th>
+                <th>Maintenance Scope</th>
+                <th>Assigned Mechanic</th>
+                <th>Priority</th>
+                <th>Lifecycle Status</th>
+              </tr>
+            </thead>
+            <tbody id="workOrdersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: DRIVER PRE-TRIP INSPECTION -->
+    <section id="tabInspectionView" style="display:none;">
+      <div class="glass-panel" id="driverInspectionSection" style="padding:1.5rem;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.25rem;">
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800;">Digital Pre-Trip Safety Inspection Audit</h2>
+            <p style="font-size:0.8rem; color:var(--text-muted);">
+              Mandatory DOT &amp; Corporate Safety Sign-off. Audits are cryptographically hashed and stored in Azure Blob Storage.
+            </p>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">Assigned Vehicle:</div>
+            <div id="driverVehicleId" style="font-weight:700; color:var(--accent-cyan); font-family:var(--font-mono); font-size:1rem;">TP-1081 (Volvo 9800)</div>
+          </div>
+        </div>
+
+        <div class="checklist-grid">
+          <div class="checklist-card">
+            <div class="checklist-info">
+              <h4>Dual-Circuit Braking System</h4>
+              <p>Pressure holding at &gt; 110 PSI, zero air line leaks.</p>
+            </div>
+            <label class="checkbox-toggle">
+              <input type="checkbox" id="checkBrakes" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="checklist-card">
+            <div class="checklist-info">
+              <h4>Tires &amp; Wheel Lug Nuts</h4>
+              <p>Tread depth &gt; 4mm, torque specs verified.</p>
+            </div>
+            <label class="checkbox-toggle">
+              <input type="checkbox" id="checkTires" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="checklist-card">
+            <div class="checklist-info">
+              <h4>Engine Fluids &amp; Coolant</h4>
+              <p>Synthetic oil level optimal, zero radiator seepage.</p>
+            </div>
+            <label class="checkbox-toggle">
+              <input type="checkbox" id="checkFluids" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="checklist-card">
+            <div class="checklist-info">
+              <h4>Lighting &amp; Retro-Reflective Markers</h4>
+              <p>High/low beams, indicators, hazard beacons verified.</p>
+            </div>
+            <label class="checkbox-toggle">
+              <input type="checkbox" id="checkLights" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="checklist-card">
+            <div class="checklist-info">
+              <h4>Emergency Kit &amp; Fire Suppression</h4>
+              <p>Certified dry-powder fire extinguisher &amp; medical kit.</p>
+            </div>
+            <label class="checkbox-toggle">
+              <input type="checkbox" id="checkEmergency" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div style="margin-top:1.5rem; display:flex; justify-content:flex-end; gap:1rem;">
+          <button id="submitInspectionBtn" class="btn-optimize" style="padding:0.6rem 1.5rem; font-size:0.85rem;">
+            Sign Digitally &amp; Dispatch Vehicle
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Academic Architecture Modal -->
+  <div class="modal-backdrop" id="architectureModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>
+          <svg width="22" height="22" fill="none" stroke="var(--accent-cyan)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          Academic Compliance &amp; System Architecture
+        </h2>
+        <button id="closeModalBtn" class="modal-close-btn" aria-label="Close modal">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <div class="modal-nav">
+        <button class="modal-nav-btn active" data-tab="rdbms">3NF RDBMS Schema &amp; DDL</button>
+        <button class="modal-nav-btn" data-tab="dp900">Azure DP-900 Data Platform</button>
+        <button class="modal-nav-btn" data-tab="security">Cloud Security &amp; RBAC</button>
+        <button class="modal-nav-btn" data-tab="systemdesign">System Design &amp; Scale</button>
+      </div>
+
+      <div class="modal-body" id="modalTabContent">
+        <!-- Content dynamically injected by architecture-modal.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- App Footer -->
+  <footer class="app-footer">
+    <div><strong>TransitPulse Platform</strong> • Built for Integrated College Capstone Submission</div>
+    <div>Subject Domains: System Design • 3NF Relational Database Systems • Azure DP-900 • Cloud Security</div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="js/routes.js"></script>
+  <script src="js/maintenance.js"></script>
+  <script src="js/architecture-modal.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

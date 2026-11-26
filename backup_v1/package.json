@@ -1,0 +1,21 @@
+{
+  "name": "transitpulse",
+  "version": "1.0.0",
+  "description": "TransitPulse - Intercity Fleet Maintenance & Route Optimization Platform",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "serve": "npx serve -s ."
+  },
+  "keywords": [
+    "fleet-management",
+    "route-optimization",
+    "iot-telemetry",
+    "azure-dp900",
+    "rdbms-3nf",
+    "cloud-security",
+    "system-design"
+  ],
+  "author": "TransitPulse Core Team",
+  "license": "MIT"
+}
